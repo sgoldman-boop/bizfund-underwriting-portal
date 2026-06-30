@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BizFund OS</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter,sans-serif;
+}
+
+body{
+background:#f5f7fb;
+display:flex;
+}
+
+.sidebar{
+
+width:260px;
+height:100vh;
+background:#071B35;
+color:white;
+padding:35px;
+position:fixed;
+left:0;
+top:0;
+
+}
+
+.logo{
+
+font-size:32px;
+font-weight:800;
+margin-bottom:50px;
+
+}
+
+.logo span{
+
+color:#2F80ED;
+
+}
+
+.menu{
+
+display:flex;
+flex-direction:column;
+gap:18px;
+
+}
+
+.menu a{
+
+text-decoration:none;
+color:white;
+padding:14px 18px;
+border-radius:12px;
+transition:.25s;
+
+}
+
+.menu a:hover{
+
+background:#12345f;
+
+}
+
+.main{
+
+margin-left:260px;
+width:100%;
+padding:40px;
+
+}
+
+.top{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:35px;
+
+}
+
+.title{
+
+font-size:34px;
+font-weight:700;
+
+}
+
+.subtitle{
+
+color:#6b7280;
+margin-top:6px;
+
+}
+
+.button{
+
+background:#2F80ED;
+color:white;
+padding:14px 22px;
+border-radius:12px;
+font-weight:600;
+cursor:pointer;
+
+}
+
+.cards{
+
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:22px;
+
+}
+
+.card{
+
+background:white;
+padding:28px;
+border-radius:18px;
+box-shadow:0 10px 30px rgba(0,0,0,.05);
+
+}
+
+.card h4{
+
+color:#6b7280;
+font-size:14px;
+margin-bottom:10px;
+
+}
+
+.value{
+
+font-size:36px;
+font-weight:800;
+
+}
+
+.section{
+
+margin-top:35px;
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.05);
+
+}
+
+.table{
+
+width:100%;
+margin-top:20px;
+border-collapse:collapse;
+
+}
+
+.table th{
+
+text-align:left;
+padding:14px;
+color:#6b7280;
+
+}
+
+.table td{
+
+padding:16px 14px;
+border-top:1px solid #eee;
+
+}
+
+.badge{
+
+display:inline-block;
+padding:8px 14px;
+background:#FEF3C7;
+color:#9A6700;
+border-radius:999px;
+font-weight:600;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<div class="logo">
+
+Biz<span>Fund</span>
+
+</div>
+
+<div class="menu">
+
+<a href="#">📊 Dashboard</a>
+<a href="#">👤 Merchant</a>
+<a href="#">📂 New Underwrite</a>
+<a href="#">💳 MCA Intelligence</a>
+<a href="#">🏦 Bank Health</a>
+<a href="#">📈 Reports</a>
+<a href="#">⚙ Settings</a>
+
+</div>
+
+</div>
+
+<div class="main">
+
+<div class="top">
+
+<div>
+
+<div class="title">
+
+BizFund OS
+
+</div>
+
+<div class="subtitle">
+
+Merchant Underwriting Intelligence Platform
+
+</div>
+
+</div>
+
+<div class="button">
+
++ New Underwrite
+
+</div>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<h4>Revenue</h4>
+
+<div class="value">$328K</div>
+
+</div>
+
+<div class="card">
+
+<h4>Risk Score</h4>
+
+<div class="value">76</div>
+
+</div>
+
+<div class="card">
+
+<h4>Active MCA</h4>
+
+<div class="value">3</div>
+
+</div>
+
+<div class="card">
+
+<h4>Recommended Offer</h4>
+
+<div class="value">$175K</div>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>Recent Underwrites</h2>
+
+<table class="table">
+
+<tr>
+
+<th>Merchant</th>
+<th>Status</th>
+<th>Revenue</th>
+<th>Offer</th>
+
+</tr>
+
+<tr>
+
+<td>Sun Produce Specialties</td>
+<td><span class="badge">Conditional Approval</span></td>
+<td>$328,000</td>
+<td>$175,000</td>
+
+</tr>
+
+<tr>
+
+<td>ABC Logistics</td>
+<td><span class="badge">Review</span></td>
+<td>$194,000</td>
+<td>$100,000</td>
+
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
