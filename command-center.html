@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Command Center | BizFund</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">B</div>
+          <div>
+            <h1>BizFund</h1>
+            <p>Underwriting OS</p>
+          </div>
+        </div>
+
+        <nav class="nav-links">
+          <a href="index.html">
+            <span>◉</span>
+            Dashboard
+          </a>
+          <a href="new-underwrite.html">
+            <span>◎</span>
+            New Underwrite
+          </a>
+          <a href="queue.html">
+            <span>◌</span>
+            Queue
+          </a>
+          <a href="deal-workspace.html">
+            <span>◍</span>
+            Deal Workspace
+          </a>
+          <a class="active" href="command-center.html">
+            <span>◐</span>
+            Command Center
+          </a>
+        </nav>
+
+        <div class="sidebar-card">
+          <p class="eyebrow">Operational control</p>
+          <h3>BizFund command center</h3>
+          <p>Review merchant documents, risk factors, and funding posture in one terminal-like workspace.</p>
+          <button>Open active deal</button>
+        </div>
+      </aside>
+
+      <main class="workspace command-workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">BizFund OS</p>
+            <h2>Command Center</h2>
+            <p class="page-subtitle">Operational underwriting workspace for live merchant decisions.</p>
+          </div>
+          <div class="topbar-actions">
+            <label class="searchbar">
+              <span>⌕</span>
+              <input type="text" placeholder="Search merchant" />
+            </label>
+            <button class="icon-btn" aria-label="Notifications">🔔</button>
+            <div class="profile-pill">
+              <div class="avatar">AL</div>
+              <div>
+                <strong>Alicia Lee</strong>
+                <p>Head of Risk</p>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <section class="command-shell">
+          <div class="command-left">
+            <div class="panel command-pdf-panel">
+              <div class="panel-header compact-header">
+                <div>
+                  <p class="eyebrow">Document view</p>
+                  <h3>Merchant Packet</h3>
+                </div>
+                <div class="pdf-toolbar">
+                  <button class="ghost-btn">Zoom In</button>
+                  <button class="ghost-btn">Zoom Out</button>
+                  <button class="ghost-btn">Rotate</button>
+                  <button class="ghost-btn">Download</button>
+                </div>
+              </div>
+              <div class="document-rail">
+                <div class="thumbnail-list">
+                  <div class="thumbnail active">Application</div>
+                  <div class="thumbnail">February</div>
+                  <div class="thumbnail">March</div>
+                  <div class="thumbnail">April</div>
+                  <div class="thumbnail">May</div>
+                </div>
+                <div class="pdf-preview">
+                  <div class="pdf-preview-card">
+                    <div class="pdf-icon">📄</div>
+                    <h4>Application</h4>
+                    <p>Embedded merchant application with underwriting annotations.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="command-right">
+            <div class="command-grid">
+              <div class="panel command-summary">
+                <div class="panel-header compact-header">
+                  <div>
+                    <p class="eyebrow">Executive summary</p>
+                    <h3 data-deal-field="merchantName">Awaiting Analysis</h3>
+                  </div>
+                  <span class="status-pill status-approved" data-deal-field="analysisStatus">Awaiting Analysis</span>
+                </div>
+                <div class="summary-metrics compact-metrics">
+                  <div class="summary-metric">
+                    <span>Requested</span>
+                    <strong data-deal-field="requestedAmount">Awaiting Analysis</strong>
+                  </div>
+                  <div class="summary-metric">
+                    <span>Risk</span>
+                    <strong data-deal-field="riskScore">Awaiting Analysis</strong>
+                  </div>
+                  <div class="summary-metric">
+                    <span>Offer</span>
+                    <strong data-deal-field="recommendedOffer">Awaiting Analysis</strong>
+                  </div>
+                  <div class="summary-metric">
+                    <span>Decision</span>
+                    <strong>42s</strong>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel command-analytics">
+                <div class="panel-header compact-header">
+                  <div>
+                    <p class="eyebrow">Revenue analytics</p>
+                    <h3>Deposit Trend</h3>
+                  </div>
+                </div>
+                <div class="analytics-chart compact-chart">
+                  <div class="chart-bar"></div>
+                  <div class="chart-bar"></div>
+                  <div class="chart-bar"></div>
+                  <div class="chart-bar"></div>
+                  <div class="chart-bar"></div>
+                </div>
+              </div>
+
+              <div class="panel command-analysis">
+                <div class="panel-header compact-header">
+                  <div>
+                    <p class="eyebrow">Deposit analysis</p>
+                    <h3>Cash Flow Signals</h3>
+                  </div>
+                </div>
+                <div class="stack-list compact-stack">
+                  <div class="stack-item"><span>Gross Deposits</span><strong>$92k</strong></div>
+                  <div class="stack-item"><span>Adjusted Revenue</span><strong>$84.8k</strong></div>
+                  <div class="stack-item"><span>Avg Ending Balance</span><strong>$41.2k</strong></div>
+                  <div class="stack-item"><span>NSF Activity</span><strong>2</strong></div>
+                </div>
+              </div>
+
+              <div class="panel command-stack">
+                <div class="panel-header compact-header">
+                  <div>
+                    <p class="eyebrow">Existing MCA stack</p>
+                    <h3>Current Leverage</h3>
+                  </div>
+                </div>
+                <div class="stack-list compact-stack">
+                  <div class="stack-item"><span>Funding Circle</span><strong>$48k</strong></div>
+                  <div class="stack-item"><span>Rapid Advance</span><strong>$24k</strong></div>
+                  <div class="stack-item"><span>BlueVine</span><strong>$18k</strong></div>
+                </div>
+              </div>
+
+              <div class="panel command-health">
+                <div class="panel-header compact-header">
+                  <div>
+                    <p class="eyebrow">Bank health</p>
+                    <h3>Performance Signals</h3>
+                  </div>
+                </div>
+                <div class="health-list compact-health">
+                  <div class="health-item"><span>Negative Days</span><strong class="status-good">1</strong></div>
+                  <div class="health-item"><span>Reserve Health</span><strong class="status-good">Strong</strong></div>
+                  <div class="health-item"><span>Balance Stability</span><strong class="status-good">Healthy</strong></div>
+                </div>
+              </div>
+
+              <div class="panel command-funding">
+                <div class="panel-header compact-header">
+                  <div>
+                    <p class="eyebrow">Funding recommendation</p>
+                    <h3>Offer Structure</h3>
+                  </div>
+                </div>
+                <div class="offer-box premium-offer compact-offer">
+                  <p class="eyebrow">Recommended Amount</p>
+                  <h4>$175,000</h4>
+                  <div class="offer-meta">
+                    <span>Factor 1.34</span>
+                    <span>52 weeks</span>
+                    <span>2nd Position</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel command-ai">
+                <div class="panel-header compact-header">
+                  <div>
+                    <p class="eyebrow">AI recommendation</p>
+                    <h3>Summary</h3>
+                  </div>
+                </div>
+                <p class="panel-copy compact-copy">
+                  Deposit consistency remains strong, with stable inflows and limited volatility. The merchant is positioned for a measured second-position offer with conservative leverage.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="command-footer">
+          <div class="panel command-chat">
+            <div class="panel-header compact-header">
+              <div>
+                <p class="eyebrow">AI chat</p>
+                <h3>Underwriting Assistant</h3>
+              </div>
+            </div>
+            <div class="chat-body">
+              <div class="chat-message">Reviewing deposit pattern and MCA load.</div>
+              <div class="chat-message assistant">Recommendation: proceed with a second-position offer.</div>
+            </div>
+          </div>
+
+          <div class="panel command-decision">
+            <div class="panel-header compact-header">
+              <div>
+                <p class="eyebrow">Pinned decision</p>
+                <h3>Decision Panel</h3>
+              </div>
+            </div>
+            <div class="decision-actions">
+              <button class="primary-btn">Approve</button>
+              <button class="ghost-btn">Counter</button>
+              <button class="ghost-btn">Decline</button>
+              <button class="ghost-btn">Generate PDF</button>
+            </div>
+            <div class="decision-nav">
+              <button class="ghost-btn">◀ Previous Deal</button>
+              <button class="ghost-btn">Next Deal ▶</button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="deal-engine.js"></script>
+    <script>
+      window.bizfundDealEngine?.bindDealFields();
+    </script>
+  </body>
+</html>

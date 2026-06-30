@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Underwriting Results | BizFund</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">B</div>
+          <div>
+            <h1>BizFund</h1>
+            <p>Underwriting OS</p>
+          </div>
+        </div>
+
+        <nav class="nav-links">
+          <a href="index.html">
+            <span>◉</span>
+            Dashboard
+          </a>
+          <a href="new-underwrite.html">
+            <span>◎</span>
+            New Underwrite
+          </a>
+          <a class="active" href="underwriting-results.html">
+            <span>◍</span>
+            Results
+          </a>
+          <a href="#">
+            <span>◌</span>
+            Pipeline
+          </a>
+          <a href="#">
+            <span>◐</span>
+            Settings
+          </a>
+        </nav>
+
+        <div class="sidebar-card">
+          <p class="eyebrow">Decisioning complete</p>
+          <h3>AI underwriting finished</h3>
+          <p>Review the final recommendation, offer, and funding path.</p>
+          <button>View memo</button>
+        </div>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">BizFund OS</p>
+            <h2>Underwriting Results</h2>
+            <p class="page-subtitle">Completed AI underwriting analysis for Northstar Commerce.</p>
+          </div>
+          <div class="topbar-actions">
+            <label class="searchbar">
+              <span>⌕</span>
+              <input type="text" placeholder="Search results" />
+            </label>
+            <button class="icon-btn" aria-label="Notifications">🔔</button>
+            <div class="profile-pill">
+              <div class="avatar">AL</div>
+              <div>
+                <strong>Alicia Lee</strong>
+                <p>Head of Risk</p>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <section class="results-hero panel">
+          <div class="results-hero-main">
+            <div>
+              <p class="eyebrow">Executive Summary</p>
+              <h3 data-deal-field="merchantName">Awaiting Analysis</h3>
+            </div>
+            <div class="status-chip" data-deal-field="recommendation">Awaiting Analysis</div>
+          </div>
+
+          <div class="results-metrics executive-grid">
+            <div class="result-metric">
+              <span>Merchant Name</span>
+              <strong data-deal-field="merchantName">Awaiting Analysis</strong>
+            </div>
+            <div class="result-metric">
+              <span>Status</span>
+              <strong data-deal-field="analysisStatus">Awaiting Analysis</strong>
+            </div>
+            <div class="result-metric">
+              <span>BizFund Risk Score</span>
+              <strong data-deal-field="riskScore">Awaiting Analysis</strong>
+            </div>
+            <div class="result-metric">
+              <span>Confidence</span>
+              <strong data-deal-field="confidenceScore">Awaiting Analysis</strong>
+            </div>
+            <div class="result-metric">
+              <span>Requested Amount</span>
+              <strong data-deal-field="requestedAmount">Awaiting Analysis</strong>
+            </div>
+            <div class="result-metric">
+              <span>Recommended Amount</span>
+              <strong data-deal-field="recommendedOffer">Awaiting Analysis</strong>
+            </div>
+            <div class="result-metric">
+              <span>Position Eligibility</span>
+              <strong data-deal-field="recommendation">Awaiting Analysis</strong>
+            </div>
+            <div class="result-metric">
+              <span>Decision Time</span>
+              <strong>42 seconds</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="kpi-grid results-kpi-grid">
+          <article class="kpi-card accent-blue">
+            <p>Monthly Deposits</p>
+            <h3 data-deal-field="grossDeposits">Awaiting Analysis</h3>
+            <span>Steady inflow profile</span>
+          </article>
+          <article class="kpi-card accent-green">
+            <p>Adjusted Revenue</p>
+            <h3 data-deal-field="adjustedRevenue">Awaiting Analysis</h3>
+            <span>Net of chargebacks</span>
+          </article>
+          <article class="kpi-card accent-violet">
+            <p>Average Ending Balance</p>
+            <h3 data-deal-field="averageEndingBalance">Awaiting Analysis</h3>
+            <span>Healthy reserve posture</span>
+          </article>
+          <article class="kpi-card accent-coral">
+            <p>Negative Days</p>
+            <h3 data-deal-field="negativeDays">Awaiting Analysis</h3>
+            <span>Minimal interruption</span>
+          </article>
+          <article class="kpi-card accent-sky">
+            <p>NSFs</p>
+            <h3 data-deal-field="nsfs">Awaiting Analysis</h3>
+            <span>Low count trend</span>
+          </article>
+          <article class="kpi-card accent-gold">
+            <p>Open MCA Positions</p>
+            <h3 data-deal-field="openMcaPositions">Awaiting Analysis</h3>
+            <span>Managed leverage</span>
+          </article>
+        </section>
+
+        <section class="results-grid">
+          <div class="panel ai-recommendation-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">AI Underwriter</p>
+                <h3>AI Executive Summary</h3>
+              </div>
+            </div>
+            <div class="recommendation-body">
+              <p data-deal-field="merchantName">Awaiting Analysis</p>
+              <p data-deal-field="recommendation">Awaiting Analysis</p>
+              <p data-deal-field="analysisStatus">Awaiting Analysis</p>
+            </div>
+          </div>
+
+          <div class="panel funding-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">BizFund Recommendation</p>
+                <h3>Recommendation Card</h3>
+              </div>
+            </div>
+            <div class="offer-box premium-offer">
+              <p class="eyebrow">Amount</p>
+              <h4 data-deal-field="recommendedOffer">Awaiting Analysis</h4>
+              <div class="offer-meta">
+                <span data-deal-field="factor">Awaiting Analysis</span>
+                <span data-deal-field="weeks">Awaiting Analysis</span>
+                <span data-deal-field="recommendation">Awaiting Analysis</span>
+                <span data-deal-field="confidenceScore">Awaiting Analysis</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="results-grid lower-grid">
+          <div class="panel stack-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Cash flow history</p>
+                <h3>Monthly Cash Flow Summary</h3>
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Month</th>
+                    <th>Gross Deposits</th>
+                    <th>Adjusted Revenue</th>
+                    <th>Ending Balance</th>
+                    <th>Trend</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Apr</td>
+                    <td>$82,100</td>
+                    <td>$75,440</td>
+                    <td>$31,220</td>
+                    <td><span class="trend up">Positive</span></td>
+                  </tr>
+                  <tr>
+                    <td>May</td>
+                    <td>$86,740</td>
+                    <td>$79,820</td>
+                    <td>$35,660</td>
+                    <td><span class="trend up">Positive</span></td>
+                  </tr>
+                  <tr>
+                    <td>Jun</td>
+                    <td>$92,260</td>
+                    <td>$84,820</td>
+                    <td>$41,220</td>
+                    <td><span class="trend up">Positive</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="panel bank-health-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Banking health</p>
+                <h3>Bank Health</h3>
+              </div>
+            </div>
+            <div class="health-list">
+              <div class="health-item">
+                <span>Deposit Trend</span>
+                <strong class="status-good">Good</strong>
+              </div>
+              <div class="health-item">
+                <span>Cash Flow</span>
+                <strong class="status-good">Healthy</strong>
+              </div>
+              <div class="health-item">
+                <span>Ending Balances</span>
+                <strong class="status-good">Strong</strong>
+              </div>
+              <div class="health-item">
+                <span>NSFs</span>
+                <strong class="status-warn">Low</strong>
+              </div>
+              <div class="health-item">
+                <span>Overdrafts</span>
+                <strong class="status-good">None</strong>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="results-grid lower-grid">
+          <div class="panel stack-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Capital structure</p>
+                <h3>Existing MCA Stack</h3>
+              </div>
+            </div>
+            <div class="table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Lender</th>
+                    <th>Payment</th>
+                    <th>Frequency</th>
+                    <th>Estimated Balance</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Northstar Capital</td>
+                    <td>$1,100</td>
+                    <td>Daily</td>
+                    <td>$12,400</td>
+                    <td><span class="status-pill success">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td>BluePeak Funding</td>
+                    <td>$720</td>
+                    <td>Weekly</td>
+                    <td>$8,900</td>
+                    <td><span class="status-pill success">Active</span></td>
+                  </tr>
+                  <tr>
+                    <td>Vertex Advance</td>
+                    <td>$580</td>
+                    <td>Daily</td>
+                    <td>$6,100</td>
+                    <td><span class="status-pill warning">Watch</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="panel timeline-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Workflow</p>
+                <h3>Timeline</h3>
+              </div>
+            </div>
+            <div class="timeline">
+              <div class="timeline-step active"><span>Upload</span></div>
+              <div class="timeline-step active"><span>Analysis</span></div>
+              <div class="timeline-step active"><span>Review</span></div>
+              <div class="timeline-step active"><span>Approval</span></div>
+              <div class="timeline-step active"><span>Funding</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="results-actions">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Workflow</p>
+              <h3>Timeline</h3>
+            </div>
+          </div>
+          <div class="timeline">
+            <div class="timeline-step active"><span>Upload</span></div>
+            <div class="timeline-step active"><span>Analysis</span></div>
+            <div class="timeline-step active"><span>Review</span></div>
+            <div class="timeline-step active"><span>Approval</span></div>
+            <div class="timeline-step active"><span>Funding</span></div>
+          </div>
+        </section>
+
+        <section class="results-actions">
+          <button class="primary-btn">Generate BizFund PDF</button>
+          <button class="ghost-btn">Back</button>
+          <button class="ghost-btn">New Underwrite</button>
+        </section>
+      </main>
+    </div>
+
+    <script src="deal-engine.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

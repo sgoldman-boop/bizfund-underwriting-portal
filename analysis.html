@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BizFund AI Underwriter | BizFund</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">B</div>
+          <div>
+            <h1>BizFund</h1>
+            <p>Underwriting OS</p>
+          </div>
+        </div>
+
+        <nav class="nav-links">
+          <a href="index.html">◉ Dashboard</a>
+          <a href="new-underwrite.html">◎ New Underwrite</a>
+          <a href="underwriting-results.html">◍ Results</a>
+        </nav>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">BizFund OS</p>
+            <h2>AI Analysis</h2>
+            <p class="page-subtitle">Reviewing merchant package and preparing the underwriting decision.</p>
+          </div>
+        </header>
+
+        <section class="analysis-screen">
+          <div class="analysis-card">
+            <div class="analysis-hero">
+              <div class="analysis-orb" aria-hidden="true">
+                <span class="analysis-orb-core"></span>
+              </div>
+              <div class="analysis-hero-copy">
+                <p class="eyebrow">BizFund AI Underwriter</p>
+                <h1>BizFund AI Underwriter</h1>
+                <p class="analysis-subtitle">Analyzing merchant documents...</p>
+              </div>
+            </div>
+
+            <div class="analysis-upload-summary" id="analysis-upload-summary"></div>
+
+            <div class="analysis-progress-block">
+              <div class="analysis-progress-bar">
+                <span id="analysis-progress-fill"></span>
+              </div>
+              <div class="analysis-meta">
+                <span class="meta-pill" id="analysis-timer">00:00</span>
+                <span class="meta-pill" id="analysis-status">Initializing</span>
+              </div>
+            </div>
+
+            <div class="analysis-steps" id="analysis-steps"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="deal-engine.js"></script>
+    <script>
+      const dealEngine = window.bizfundDealEngine;
+      const uploadSummary = document.getElementById("analysis-upload-summary");
+      const storedUploadState = JSON.parse(sessionStorage.getItem("bizfund-upload-state") || "{}") || {};
+      const applicationFiles = storedUploadState.merchantApplication || [];
+      const bankStatements = storedUploadState.bankStatements || [];
+
+      if (uploadSummary) {
+        uploadSummary.innerHTML = `
+          <strong>Uploaded package</strong>
+          <div>Application: ${applicationFiles[0] ? applicationFiles[0].name : "Pending"}</div>
+          <div>Bank statements: ${bankStatements.length} uploaded</div>
+        `;
+      }
+
+      const steps = [
+        "Reading Merchant Application",
+        "Reading Bank Statement 1",
+        "Reading Bank Statement 2",
+        "Reading Bank Statement 3",
+        "Detecting Deposits",
+        "Detecting Transfers",
+        "Detecting Existing MCA Lenders",
+        "Calculating Gross Deposits",
+        "Calculating Adjusted Revenue",
+        "Counting NSF Activity",
+        "Detecting Negative Days",
+        "Calculating Average Ending Balance",
+        "Determining Position Eligibility",
+        "Building Underwriting Recommendation",
+        "Generating BizFund Report",
+      ];
+
+      const stepContainer = document.getElementById("analysis-steps");
+      const progressFill = document.getElementById("analysis-progress-fill");
+      const timerEl = document.getElementById("analysis-timer");
+      const statusEl = document.getElementById("analysis-status");
+
+      stepContainer.innerHTML = steps
+        .map(
+          (step, index) => `
+            <div class="analysis-step" data-step="${index}">
+              <span class="step-dot">${index + 1}</span>
+              <span>${step}</span>
+            </div>
+          `
+        )
+        .join("");
+
+      let currentIndex = 0;
+      let elapsedSeconds = 0;
+
+      const timer = setInterval(() => {
+        elapsedSeconds += 1;
+        const minutes = String(Math.floor(elapsedSeconds / 60)).padStart(2, "0");
+        const seconds = String(elapsedSeconds % 60).padStart(2, "0");
+        timerEl.textContent = `${minutes}:${seconds}`;
+      }, 1000);
+
+      const advanceAnalysis = () => {
+        const items = Array.from(document.querySelectorAll(".analysis-step"));
+        items.forEach((item, index) => {
+          item.classList.remove("is-active", "is-complete");
+          if (index < currentIndex) {
+            item.classList.add("is-complete");
+          } else if (index === currentIndex) {
+            item.classList.add("is-active");
+          }
+        });
+
+        if (currentIndex >= steps.length) {
+          clearInterval(timer);
+          progressFill.style.width = "100%";
+          statusEl.textContent = "Completed";
+          if (dealEngine) {
+            dealEngine.writeDeal({
+              analysisStatus: "Approved",
+              merchantName: "Northstar Commerce",
+              industry: "Retail / eCommerce",
+              requestedAmount: 250000,
+              riskScore: 92,
+              recommendation: "Approved",
+              confidenceScore: 97,
+              grossDeposits: "$328,442",
+              adjustedRevenue: "$297,880",
+              averageEndingBalance: "$41,220",
+              negativeDays: 1,
+              nsfs: 2,
+              openMcaPositions: 3,
+              recommendedOffer: "$175,000",
+              factor: "1.34x",
+              weeks: "52 weeks",
+            });
+          }
+          setTimeout(() => {
+            window.location.href = "underwriting-results.html";
+          }, 900);
+          return;
+        }
+
+        statusEl.textContent = steps[currentIndex];
+        progressFill.style.width = `${((currentIndex + 1) / steps.length) * 100}%`;
+        currentIndex += 1;
+        setTimeout(advanceAnalysis, 700);
+      };
+
+      setTimeout(advanceAnalysis, 400);
+    </script>
+  </body>
+</html>

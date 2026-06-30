@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Queue | BizFund</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">B</div>
+          <div>
+            <h1>BizFund</h1>
+            <p>Underwriting OS</p>
+          </div>
+        </div>
+
+        <nav class="nav-links">
+          <a href="index.html">
+            <span>◉</span>
+            Dashboard
+          </a>
+          <a href="new-underwrite.html">
+            <span>◎</span>
+            New Underwrite
+          </a>
+          <a class="active" href="queue.html">
+            <span>◌</span>
+            Queue
+          </a>
+          <a href="underwriting-results.html">
+            <span>◍</span>
+            Results
+          </a>
+          <a href="#">
+            <span>◐</span>
+            Settings
+          </a>
+        </nav>
+
+        <div class="sidebar-card">
+          <p class="eyebrow">Decisioning workspace</p>
+          <h3>BizFund underwriting queue</h3>
+          <p>Track every deal, risk signal, and decision from intake to funding.</p>
+          <button>Review pipeline</button>
+        </div>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">BizFund OS</p>
+            <h2>Underwriting Queue</h2>
+            <p class="page-subtitle">A premium operating layer for active merchant decisions.</p>
+          </div>
+          <div class="topbar-actions">
+            <label class="searchbar">
+              <span>⌕</span>
+              <input type="text" placeholder="Search merchant" id="queue-search" />
+            </label>
+            <button class="icon-btn" aria-label="Notifications">🔔</button>
+            <div class="profile-pill">
+              <div class="avatar">AL</div>
+              <div>
+                <strong>Alicia Lee</strong>
+                <p>Head of Risk</p>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <section class="queue-kpi-grid" id="queue-kpi-grid"></section>
+
+        <section class="panel queue-panel">
+          <div class="queue-toolbar">
+            <div class="queue-toolbar-group">
+              <label>
+                <span>Filter</span>
+                <select id="queue-status-filter">
+                  <option value="all">All statuses</option>
+                  <option value="New">New</option>
+                  <option value="Analyzing">Analyzing</option>
+                  <option value="Review">Review</option>
+                  <option value="Approved">Approved</option>
+                  <option value="Declined">Declined</option>
+                  <option value="Funded">Funded</option>
+                </select>
+              </label>
+              <label>
+                <span>Assigned Underwriter</span>
+                <select id="queue-underwriter-filter">
+                  <option value="all">All underwriters</option>
+                </select>
+              </label>
+              <label>
+                <span>Date Range</span>
+                <select id="queue-date-filter">
+                  <option value="all">All dates</option>
+                  <option value="7">Last 7 days</option>
+                  <option value="30">Last 30 days</option>
+                  <option value="90">Last 90 days</option>
+                </select>
+              </label>
+            </div>
+            <div class="queue-toolbar-group">
+              <label>
+                <span>Sort</span>
+                <select id="queue-sort">
+                  <option value="submitted-desc">Newest first</option>
+                  <option value="submitted-asc">Oldest first</option>
+                  <option value="risk-desc">Risk score ↓</option>
+                  <option value="risk-asc">Risk score ↑</option>
+                </select>
+              </label>
+              <button class="ghost-btn queue-reset-btn" type="button" id="queue-reset">Clear</button>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table class="data-table queue-table">
+              <thead>
+                <tr>
+                  <th>Merchant</th>
+                  <th>Owner</th>
+                  <th>Industry</th>
+                  <th>State</th>
+                  <th>Requested Amount</th>
+                  <th>Monthly Revenue</th>
+                  <th>Open Positions</th>
+                  <th>Risk Score</th>
+                  <th>Status</th>
+                  <th>Assigned Underwriter</th>
+                  <th>Date Submitted</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="queue-table-body"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="deal-engine.js"></script>
+    <script>
+      const deals = [
+        {
+          merchant: "Northstar Commerce",
+          owner: "Jordan Patel",
+          industry: "Retail / eCommerce",
+          state: "CA",
+          requestedAmount: "$250,000",
+          monthlyRevenue: "$92,000",
+          openPositions: 3,
+          riskScore: 82,
+          status: "New",
+          assignedUnderwriter: "Alicia Lee",
+          dateSubmitted: "2026-06-28",
+          decisionTime: "42 sec",
+        },
+        {
+          merchant: "Blue Harbor Goods",
+          owner: "Mina Brooks",
+          industry: "Home Services",
+          state: "TX",
+          requestedAmount: "$175,000",
+          monthlyRevenue: "$68,000",
+          openPositions: 2,
+          riskScore: 74,
+          status: "Analyzing",
+          assignedUnderwriter: "Sam Ortiz",
+          dateSubmitted: "2026-06-24",
+          decisionTime: "1 min",
+        },
+        {
+          merchant: "Cedar & Co.",
+          owner: "Chris Nguyen",
+          industry: "Medical Spa",
+          state: "FL",
+          requestedAmount: "$320,000",
+          monthlyRevenue: "$118,000",
+          openPositions: 4,
+          riskScore: 91,
+          status: "Review",
+          assignedUnderwriter: "Nina Shah",
+          dateSubmitted: "2026-06-22",
+          decisionTime: "3 min",
+        },
+        {
+          merchant: "Harborline Supply",
+          owner: "Elena Cruz",
+          industry: "Wholesale",
+          state: "IL",
+          requestedAmount: "$140,000",
+          monthlyRevenue: "$54,000",
+          openPositions: 1,
+          riskScore: 67,
+          status: "Approved",
+          assignedUnderwriter: "Alicia Lee",
+          dateSubmitted: "2026-06-20",
+          decisionTime: "48 sec",
+        },
+        {
+          merchant: "Luma Atelier",
+          owner: "Tariq Hassan",
+          industry: "Beauty",
+          state: "NY",
+          requestedAmount: "$200,000",
+          monthlyRevenue: "$76,000",
+          openPositions: 2,
+          riskScore: 63,
+          status: "Declined",
+          assignedUnderwriter: "Drew Chen",
+          dateSubmitted: "2026-06-15",
+          decisionTime: "37 sec",
+        },
+        {
+          merchant: "Summit Motors",
+          owner: "Leah Brooks",
+          industry: "Auto Repair",
+          state: "AZ",
+          requestedAmount: "$360,000",
+          monthlyRevenue: "$131,000",
+          openPositions: 5,
+          riskScore: 88,
+          status: "Funded",
+          assignedUnderwriter: "Sam Ortiz",
+          dateSubmitted: "2026-06-10",
+          decisionTime: "55 sec",
+        },
+      ];
+
+      const tableBody = document.getElementById("queue-table-body");
+      const kpiGrid = document.getElementById("queue-kpi-grid");
+      const searchInput = document.getElementById("queue-search");
+      const statusFilter = document.getElementById("queue-status-filter");
+      const underwriterFilter = document.getElementById("queue-underwriter-filter");
+      const dateFilter = document.getElementById("queue-date-filter");
+      const sortSelect = document.getElementById("queue-sort");
+      const resetButton = document.getElementById("queue-reset");
+      window.bizfundDealEngine?.bindDealFields();
+
+      const underwriters = Array.from(new Set(deals.map((deal) => deal.assignedUnderwriter))).sort();
+      underwriters.forEach((underwriter) => {
+        const option = document.createElement("option");
+        option.value = underwriter;
+        option.textContent = underwriter;
+        underwriterFilter.appendChild(option);
+      });
+
+      function getStatusClass(status) {
+        return `status-pill status-${status.toLowerCase()}`;
+      }
+
+      function getFilteredDeals() {
+        const query = searchInput.value.trim().toLowerCase();
+        const selectedStatus = statusFilter.value;
+        const selectedUnderwriter = underwriterFilter.value;
+        const dateRange = dateFilter.value;
+        const sortValue = sortSelect.value;
+
+        const filtered = deals.filter((deal) => {
+          const matchesSearch = [deal.merchant, deal.owner, deal.industry, deal.state, deal.status]
+            .join(" ")
+            .toLowerCase()
+            .includes(query);
+          const matchesStatus = selectedStatus === "all" || deal.status === selectedStatus;
+          const matchesUnderwriter = selectedUnderwriter === "all" || deal.assignedUnderwriter === selectedUnderwriter;
+
+          let matchesDate = true;
+          if (dateRange !== "all") {
+            const now = new Date("2026-06-28T00:00:00");
+            const submitted = new Date(deal.dateSubmitted);
+            const diffDays = (now - submitted) / (1000 * 60 * 60 * 24);
+            const rangeDays = Number(dateRange);
+            matchesDate = diffDays <= rangeDays;
+          }
+
+          return matchesSearch && matchesStatus && matchesUnderwriter && matchesDate;
+        });
+
+        const sorted = [...filtered].sort((a, b) => {
+          if (sortValue === "risk-desc") return b.riskScore - a.riskScore;
+          if (sortValue === "risk-asc") return a.riskScore - b.riskScore;
+          if (sortValue === "submitted-asc") return new Date(a.dateSubmitted) - new Date(b.dateSubmitted);
+          return new Date(b.dateSubmitted) - new Date(a.dateSubmitted);
+        });
+
+        return sorted;
+      }
+
+      function renderCards() {
+        const todayDeals = deals.length;
+        const avgRisk = Math.round(deals.reduce((sum, deal) => sum + deal.riskScore, 0) / deals.length);
+        const pendingReviews = deals.filter((deal) => deal.status === "Review" || deal.status === "Analyzing").length;
+        const approvedToday = deals.filter((deal) => deal.status === "Approved").length;
+        const fundedToday = deals.filter((deal) => deal.status === "Funded").length;
+        const avgDecisionTime = deals.reduce((sum, deal) => sum + Number(deal.decisionTime.split(" ")[0]), 0) / deals.length;
+
+        const cards = [
+          { label: "Today's Deals", value: todayDeals, note: "Live queue volume" },
+          { label: "Average Risk Score", value: `${avgRisk}/100`, note: "Portfolio average" },
+          { label: "Pending Reviews", value: pendingReviews, note: "Requires operator touch" },
+          { label: "Approved Today", value: approvedToday, note: "Fast approvals" },
+          { label: "Funded Today", value: fundedToday, note: "Settled volume" },
+          { label: "Average Decision Time", value: `${Math.round(avgDecisionTime)} min`, note: "Across current queue" },
+        ];
+
+        kpiGrid.innerHTML = cards
+          .map(
+            (card) => `
+              <article class="kpi-card queue-kpi-card">
+                <p>${card.label}</p>
+                <h3>${card.value}</h3>
+                <span>${card.note}</span>
+              </article>
+            `
+          )
+          .join("");
+      }
+
+      function renderTable() {
+        const visibleDeals = getFilteredDeals();
+
+        if (!visibleDeals.length) {
+          tableBody.innerHTML = `
+            <tr>
+              <td colspan="12" class="queue-empty">No merchants match the current filters.</td>
+            </tr>
+          `;
+          return;
+        }
+
+        tableBody.innerHTML = visibleDeals
+          .map(
+            (deal) => `
+              <tr class="queue-row" data-href="underwriting-results.html">
+                <td><strong>${deal.merchant}</strong></td>
+                <td>${deal.owner}</td>
+                <td>${deal.industry}</td>
+                <td>${deal.state}</td>
+                <td>${deal.requestedAmount}</td>
+                <td>${deal.monthlyRevenue}</td>
+                <td>${deal.openPositions}</td>
+                <td>${deal.riskScore}</td>
+                <td><span class="${getStatusClass(deal.status)}">${deal.status}</span></td>
+                <td>${deal.assignedUnderwriter}</td>
+                <td>${deal.dateSubmitted}</td>
+                <td><button class="ghost-btn view-btn" type="button">Open</button></td>
+              </tr>
+            `
+          )
+          .join("");
+
+        tableBody.querySelectorAll(".queue-row").forEach((row) => {
+          row.addEventListener("click", (event) => {
+            if (event.target.closest(".view-btn")) {
+              window.location.href = "underwriting-results.html";
+              return;
+            }
+            window.location.href = row.dataset.href;
+          });
+        });
+      }
+
+      [searchInput, statusFilter, underwriterFilter, dateFilter, sortSelect].forEach((control) => {
+        control.addEventListener("input", renderTable);
+        control.addEventListener("change", renderTable);
+      });
+
+      resetButton.addEventListener("click", () => {
+        searchInput.value = "";
+        statusFilter.value = "all";
+        underwriterFilter.value = "all";
+        dateFilter.value = "all";
+        sortSelect.value = "submitted-desc";
+        renderTable();
+      });
+
+      renderCards();
+      renderTable();
+    </script>
+  </body>
+</html>

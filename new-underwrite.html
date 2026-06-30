@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Underwrite | BizFund</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">B</div>
+          <div>
+            <h1>BizFund</h1>
+            <p>Underwriting OS</p>
+          </div>
+        </div>
+
+        <nav class="nav-links">
+          <a href="index.html">
+            <span>◉</span>
+            Dashboard
+          </a>
+          <a class="active" href="new-underwrite.html">
+            <span>◎</span>
+            New Underwrite
+          </a>
+          <a href="#">
+            <span>◌</span>
+            Pipeline
+          </a>
+          <a href="#">
+            <span>◍</span>
+            Reports
+          </a>
+          <a href="#">
+            <span>◐</span>
+            Settings
+          </a>
+        </nav>
+
+        <div class="sidebar-card">
+          <p class="eyebrow">Core workflow</p>
+          <h3>Launch underwriting in minutes</h3>
+          <p>Collect merchant data and docs to unlock instant AI review.</p>
+          <button>Get started</button>
+        </div>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">BizFund OS</p>
+            <h2>New Underwrite</h2>
+            <p class="page-subtitle">Upload merchant documents for AI underwriting.</p>
+          </div>
+          <div class="topbar-actions">
+            <label class="searchbar">
+              <span>⌕</span>
+              <input type="text" placeholder="Search merchant files" />
+            </label>
+            <button class="icon-btn" aria-label="Notifications">🔔</button>
+            <div class="profile-pill">
+              <div class="avatar">AL</div>
+              <div>
+                <strong>Alicia Lee</strong>
+                <p>Head of Risk</p>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <section class="stepper" aria-label="Underwriting progress">
+          <div class="stepper-item active">
+            <span class="step-index">1</span>
+            <div>
+              <strong>Upload Documents</strong>
+              <p>Application and bank statements</p>
+            </div>
+          </div>
+          <div class="stepper-item">
+            <span class="step-index">2</span>
+            <div>
+              <strong>AI Analysis</strong>
+              <p>Decision-ready underwriting review</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="underwrite-layout">
+          <div class="underwrite-main">
+            <div class="panel processing-panel">
+              <div class="panel-header">
+                <div>
+                  <p class="eyebrow">AI processing</p>
+                  <h3>What the AI will extract</h3>
+                </div>
+                <span class="chip success">Instant extraction</span>
+              </div>
+
+              <p class="processing-copy">
+                The AI reads the merchant application PDF and automatically builds the underwriting profile before analysis begins.
+              </p>
+
+              <div class="processing-grid">
+                <div class="processing-item">Merchant Name</div>
+                <div class="processing-item">DBA</div>
+                <div class="processing-item">Owner</div>
+                <div class="processing-item">Industry</div>
+                <div class="processing-item">Requested Amount</div>
+                <div class="processing-item">Gross Deposits</div>
+                <div class="processing-item">Adjusted Revenue</div>
+                <div class="processing-item">Existing MCA Stack</div>
+                <div class="processing-item">NSFs</div>
+                <div class="processing-item">Negative Days</div>
+                <div class="processing-item">Recommended Offer</div>
+              </div>
+            </div>
+
+            <div class="panel upload-panel">
+              <div class="panel-header">
+                <div>
+                  <p class="eyebrow">Document intake</p>
+                  <h3>Two-step upload workflow</h3>
+                </div>
+              </div>
+
+              <p class="panel-copy">Upload the merchant application and one or more bank statement PDFs to begin AI underwriting.</p>
+
+              <div class="upload-grid">
+                <label class="upload-card" data-upload-key="merchant-application" data-required-count="1">
+                  <input type="file" accept="application/pdf" data-upload-key="merchant-application" />
+                  <div class="upload-card-main">
+                    <span class="upload-icon">⬆</span>
+                    <strong>Merchant Application (PDF)</strong>
+                    <p class="drop-state">Drag and drop or browse</p>
+                  </div>
+                  <div class="upload-meta">
+                    <div class="upload-progress"><span></span></div>
+                    <div class="upload-status">Pending</div>
+                    <ul class="uploaded-files"></ul>
+                  </div>
+                  <span class="upload-check">✓</span>
+                </label>
+                <label class="upload-card bank-statements-card" data-upload-key="bank-statements" data-required-count="1">
+                  <input type="file" accept="application/pdf" multiple data-upload-key="bank-statements" />
+                  <div class="upload-card-main">
+                    <span class="upload-icon">⬆</span>
+                    <strong>Bank Statements (1-10 PDFs)</strong>
+                    <p class="drop-state">Upload 1-10 bank statement PDFs</p>
+                  </div>
+                  <div class="upload-meta">
+                    <div class="upload-progress"><span></span></div>
+                    <div class="upload-status">Pending</div>
+                    <div class="statement-count">0 of 10 statements uploaded</div>
+                    <ul class="uploaded-files bank-statement-list"></ul>
+                    <div class="bank-upload-actions">
+                      <button type="button" class="ghost-btn small-btn add-more-btn">Add More Statements</button>
+                    </div>
+                  </div>
+                  <span class="upload-check">✓</span>
+                </label>
+              </div>
+
+              <div class="upload-checklist" id="upload-checklist">
+                <div class="checklist-item" data-checklist="merchant-application">✓ Merchant Application</div>
+                <div class="checklist-item" data-checklist="bank-statements">✓ Bank Statements (0 of 10)</div>
+                <div class="checklist-item" data-checklist="ready">✓ Ready for Analysis</div>
+              </div>
+
+              <div class="action-row">
+                <button class="primary-btn large-btn" id="run-underwriting" disabled>🚀 Run AI Underwriting</button>
+              </div>
+              <p class="upload-guidance" id="upload-guidance">Upload the merchant application and bank statements to unlock underwriting.</p>
+            </div>
+          </div>
+
+          <aside class="panel summary-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Deal control</p>
+                <h3>Deal Summary</h3>
+              </div>
+            </div>
+
+            <div class="summary-list">
+              <div class="summary-item">
+                <span>Requested Amount</span>
+                <strong data-deal-field="requestedAmount">Awaiting Analysis</strong>
+              </div>
+              <div class="summary-item">
+                <span>Industry</span>
+                <strong data-deal-field="industry">Awaiting Analysis</strong>
+              </div>
+              <div class="summary-item">
+                <span>Review Time</span>
+                <strong>6 min</strong>
+              </div>
+              <div class="summary-item">
+                <span>Expected Funding</span>
+                <strong>24-48 hrs</strong>
+              </div>
+              <div class="summary-item">
+                <span>Required Uploads</span>
+                <strong data-deal-field="uploadedBankStatements">Awaiting Analysis</strong>
+              </div>
+            </div>
+          </aside>
+        </section>
+      </main>
+    </div>
+    <script src="deal-engine.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
