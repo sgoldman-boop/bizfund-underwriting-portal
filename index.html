@@ -1,327 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BizFund OS</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Inter,sans-serif;
-}
-
-body{
-background:#f5f7fb;
-display:flex;
-}
-
-.sidebar{
-
-width:260px;
-height:100vh;
-background:#071B35;
-color:white;
-padding:35px;
-position:fixed;
-left:0;
-top:0;
-
-}
-
-.logo{
-
-font-size:32px;
-font-weight:800;
-margin-bottom:50px;
-
-}
-
-.logo span{
-
-color:#2F80ED;
-
-}
-
-.menu{
-
-display:flex;
-flex-direction:column;
-gap:18px;
-
-}
-
-.menu a{
-
-text-decoration:none;
-color:white;
-padding:14px 18px;
-border-radius:12px;
-transition:.25s;
-
-}
-
-.menu a:hover{
-
-background:#12345f;
-
-}
-
-.main{
-
-margin-left:260px;
-width:100%;
-padding:40px;
-
-}
-
-.top{
-
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:35px;
-
-}
-
-.title{
-
-font-size:34px;
-font-weight:700;
-
-}
-
-.subtitle{
-
-color:#6b7280;
-margin-top:6px;
-
-}
-
-.button{
-
-background:#2F80ED;
-color:white;
-padding:14px 22px;
-border-radius:12px;
-font-weight:600;
-cursor:pointer;
-
-}
-
-.cards{
-
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:22px;
-
-}
-
-.card{
-
-background:white;
-padding:28px;
-border-radius:18px;
-box-shadow:0 10px 30px rgba(0,0,0,.05);
-
-}
-
-.card h4{
-
-color:#6b7280;
-font-size:14px;
-margin-bottom:10px;
-
-}
-
-.value{
-
-font-size:36px;
-font-weight:800;
-
-}
-
-.section{
-
-margin-top:35px;
-background:white;
-padding:30px;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,.05);
-
-}
-
-.table{
-
-width:100%;
-margin-top:20px;
-border-collapse:collapse;
-
-}
-
-.table th{
-
-text-align:left;
-padding:14px;
-color:#6b7280;
-
-}
-
-.table td{
-
-padding:16px 14px;
-border-top:1px solid #eee;
-
-}
-
-.badge{
-
-display:inline-block;
-padding:8px 14px;
-background:#FEF3C7;
-color:#9A6700;
-border-radius:999px;
-font-weight:600;
-
-}
-
-</style>
-
-</head>
-
-<body>
-
-<div class="sidebar">
-
-<div class="logo">
-
-Biz<span>Fund</span>
-
-</div>
-
-<div class="menu">
-
-<a href="#">📊 Dashboard</a>
-<a href="#">👤 Merchant</a>
-<a href="#">📂 New Underwrite</a>
-<a href="#">💳 MCA Intelligence</a>
-<a href="#">🏦 Bank Health</a>
-<a href="#">📈 Reports</a>
-<a href="#">⚙ Settings</a>
-
-</div>
-
-</div>
-
-<div class="main">
-
-<div class="top">
-
-<div>
-
-<div class="title">
-
-BizFund OS
-
-</div>
-
-<div class="subtitle">
-
-Merchant Underwriting Intelligence Platform
-
-</div>
-
-</div>
-
-<div class="button">
-
-+ New Underwrite
-
-</div>
-
-</div>
-
-<div class="cards">
-
-<div class="card">
-
-<h4>Revenue</h4>
-
-<div class="value">$328K</div>
-
-</div>
-
-<div class="card">
-
-<h4>Risk Score</h4>
-
-<div class="value">76</div>
-
-</div>
-
-<div class="card">
-
-<h4>Active MCA</h4>
-
-<div class="value">3</div>
-
-</div>
-
-<div class="card">
-
-<h4>Recommended Offer</h4>
-
-<div class="value">$175K</div>
-
-</div>
-
-</div>
-
-<div class="section">
-
-<h2>Recent Underwrites</h2>
-
-<table class="table">
-
-<tr>
-
-<th>Merchant</th>
-<th>Status</th>
-<th>Revenue</th>
-<th>Offer</th>
-
-</tr>
-
-<tr>
-
-<td>Sun Produce Specialties</td>
-<td><span class="badge">Conditional Approval</span></td>
-<td>$328,000</td>
-<td>$175,000</td>
-
-</tr>
-
-<tr>
-
-<td>ABC Logistics</td>
-<td><span class="badge">Review</span></td>
-<td>$194,000</td>
-<td>$100,000</td>
-
-</tr>
-
-</table>
-
-</div>
-
-</div>
-
-</body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BizFund Underwriting Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">B</div>
+          <div>
+            <h1>BizFund</h1>
+            <p>Underwriting OS</p>
+          </div>
+        </div>
+
+        <nav class="nav-links">
+          <a class="active" href="#">
+            <span>◉</span>
+            Overview
+          </a>
+          <a href="#">
+            <span>◌</span>
+            Pipeline
+          </a>
+          <a href="#">
+            <span>◎</span>
+            AI Workbench
+          </a>
+          <a href="#">
+            <span>◍</span>
+            Reports
+          </a>
+          <a href="#">
+            <span>◐</span>
+            Settings
+          </a>
+        </nav>
+
+        <div class="sidebar-card">
+          <p class="eyebrow">Automation</p>
+          <h3>94% faster approvals</h3>
+          <p>Launch AI-assisted review with live risk scoring.</p>
+          <button>Upgrade</button>
+        </div>
+      </aside>
+
+      <main class="workspace">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Operations overview</p>
+            <h2>Premium fintech workspace</h2>
+          </div>
+          <div class="topbar-actions">
+            <label class="searchbar">
+              <span>⌕</span>
+              <input type="text" placeholder="Search deals, alerts, teams" />
+            </label>
+            <button class="icon-btn" aria-label="Notifications">🔔</button>
+            <div class="profile-pill">
+              <div class="avatar">AL</div>
+              <div>
+                <strong>Alicia Lee</strong>
+                <p>Head of Risk</p>
+              </div>
+            </div>
+          </div>
+        </header>
+
+        <section class="kpi-grid">
+          <article class="kpi-card accent-blue">
+            <p>Revenue run-rate</p>
+            <h3>$4.8M</h3>
+            <span>+18.2% this month</span>
+          </article>
+          <article class="kpi-card accent-green">
+            <p>Approval rate</p>
+            <h3>91.4%</h3>
+            <span>+4.1% vs last week</span>
+          </article>
+          <article class="kpi-card accent-violet">
+            <p>Average decision time</p>
+            <h3>14 min</h3>
+            <span>Down from 28 min</span>
+          </article>
+          <article class="kpi-card accent-coral">
+            <p>Open risk alerts</p>
+            <h3>12</h3>
+            <span>3 high priority</span>
+          </article>
+          <article class="kpi-card accent-sky">
+            <p>Pipeline volume</p>
+            <h3>$12.3M</h3>
+            <span>18 active opportunities</span>
+          </article>
+          <article class="kpi-card accent-gold">
+            <p>Net margin</p>
+            <h3>34.8%</h3>
+            <span>Stable with strong mix</span>
+          </article>
+        </section>
+
+        <section class="content-grid">
+          <div class="panel chart-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Performance</p>
+                <h3>Revenue trend</h3>
+              </div>
+              <button class="ghost-btn">View report</button>
+            </div>
+            <div class="chart-card">
+              <div class="chart-legend">
+                <span><i class="dot blue"></i>Approved</span>
+                <span><i class="dot purple"></i>Forecast</span>
+              </div>
+              <svg viewBox="0 0 500 220" class="line-chart" aria-label="Revenue chart placeholder">
+                <path d="M20 180 C70 150, 110 160, 150 130 S250 90, 300 120 S400 150, 480 50" />
+                <path class="area" d="M20 180 C70 150, 110 160, 150 130 S250 90, 300 120 S400 150, 480 50 L480 200 L20 200 Z" />
+              </svg>
+              <div class="chart-bars">
+                <div style="height: 55%"></div>
+                <div style="height: 70%"></div>
+                <div style="height: 85%"></div>
+                <div style="height: 62%"></div>
+                <div style="height: 90%"></div>
+                <div style="height: 75%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel ai-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">AI copilot</p>
+                <h3>AI Underwriter</h3>
+              </div>
+              <span class="status-pill">Live</span>
+            </div>
+            <div class="ai-body">
+              <div class="ai-score">
+                <h4>Risk score</h4>
+                <div class="score-ring">
+                  <span>82</span>
+                </div>
+              </div>
+              <ul>
+                <li>Fraud signals are within model thresholds</li>
+                <li>Cash-flow stability is improving quarter-on-quarter</li>
+                <li>Suggested follow-up: request bank statement</li>
+              </ul>
+              <button class="primary-btn">Open review</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="bottom-grid">
+          <div class="panel table-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Recent activity</p>
+                <h3>Recent Underwrites</h3>
+              </div>
+              <button class="ghost-btn">Export</button>
+            </div>
+            <table>
+              <thead>
+                <tr>
+                  <th>Company</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Owner</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Northstar Labs</td>
+                  <td>$240k</td>
+                  <td><span class="chip success">Approved</span></td>
+                  <td>Mina</td>
+                </tr>
+                <tr>
+                  <td>Harbor Cloud</td>
+                  <td>$118k</td>
+                  <td><span class="chip warning">Review</span></td>
+                  <td>Jules</td>
+                </tr>
+                <tr>
+                  <td>Atlas Foods</td>
+                  <td>$96k</td>
+                  <td><span class="chip info">Queued</span></td>
+                  <td>Rae</td>
+                </tr>
+                <tr>
+                  <td>BrightLoop</td>
+                  <td>$74k</td>
+                  <td><span class="chip success">Approved</span></td>
+                  <td>Marco</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="panel alerts-panel">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Monitoring</p>
+                <h3>Recent Alerts</h3>
+              </div>
+              <button class="ghost-btn">See all</button>
+            </div>
+            <div class="alert-list">
+              <div class="alert-item">
+                <strong>Unusual velocity spike</strong>
+                <p>3 applications submitted in 12 minutes</p>
+              </div>
+              <div class="alert-item">
+                <strong>Invoice anomaly</strong>
+                <p>Invoice date mismatch detected on Harbor Cloud</p>
+              </div>
+              <div class="alert-item">
+                <strong>Policy threshold</strong>
+                <p>Exposure limit near trigger for Atlas Foods</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
 </html>
